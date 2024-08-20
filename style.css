@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800;900&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    overflow: hidden;    
+}
+
+.main {
+    width: 100%;
+    height: 100vh; /* Changed from 100vw to 100vh to cover the entire viewport height */
+    background-image: url('countdown.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+img {
+    display: block;
+    margin: 0 auto;
+}
+
+.overlay {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.title {
+    margin-top: 30px;
+    align-items: center;
+    color: #fff;
+    font-size: 2.5em;
+    font-weight: bolder;
+    text-transform: capitalize;
+}
+
+.cols {
+    margin-top: 10%;
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    color: #fff;
+}
+
+.cols .timer-box {
+    width: 250px;
+    text-align: center;
+}
+
+input {
+    width: 50%;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-color: transparent;
+    border-radius: 5px;
+    height: 50px;
+    text-align: center;
+    font-size: 30px;
+}
+
+label {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+
+#link {
+    color: black;
+}
+
+
+ /* Media query for smartphones */
+ @media only screen and (max-width: 600px) {
+    .logo-container img {
+        width: 70px;
+        height: 55px;
+        margin: 0 5px;
+    }
+
+    .title {
+        font-size: 16px;
+    }
+
+    .cols {
+        flex-direction: row;
+        justify-content: space-around;
+        gap: 10px;
+    }
+
+    .timer-box {
+        width: 70px; /* Reduce width of timer boxes */
+    }
+
+    .timer-box input {
+        width: 100%;
+        font-size: 14px; /* Reduce font size for inputs */
+    }
+
+    .timer-box label {
+        font-size: 12px; /* Reduce font size for labels */
+    }
+}
