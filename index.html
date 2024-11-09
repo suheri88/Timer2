@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Countdown Timer</title>
+    <title>Countdown Timer with Snow and Maple Leaf Effect</title>
     <!-- CSS -->
     <link rel="stylesheet" href="style.css">
     <style>
@@ -43,13 +43,47 @@
             text-align: center;
         }
 
+        .timer-box input {
+            color: rgb(234, 63, 177);
+        }
+
         #redirect-link a {
-            color: red; /* Ubah warna teks disini */
-            text-decoration: none; /* Hilangkan garis bawah jika diinginkan */
+            color: red;
+            text-decoration: none;
         }
 
         #redirect-link a:hover {
-            color: blue; /* Ubah warna teks saat di-hover */
+            color: blue;
+        }
+
+        /* Efek salju */
+        .snowflake {
+            position: absolute;
+            top: -10px;
+            color: #fff;
+            font-size: 1em;
+            opacity: 0.8;
+            pointer-events: none;
+            animation: fall 10s linear infinite;
+        }
+
+        /* Efek daun maple */
+        .maple-leaf {
+            position: absolute;
+            top: -10px;
+            color: #ff4500; /* Warna daun maple */
+            font-size: 1.2em;
+            opacity: 0.9;
+            pointer-events: none;
+            animation: fall 8s linear infinite;
+            transform-origin: center;
+        }
+
+        /* Animasi jatuh */
+        @keyframes fall {
+            to {
+                transform: translateY(100vh) rotate(360deg);
+            }
         }
     </style>
 </head>
@@ -89,19 +123,52 @@
                 </div>
             </div>
             <div id="redirect-link" style="display:none;">
-                <a href="#">Kelas X</a>
+                <a href="https://sites.google.com/view/bahasainggrislanjutv3/halaman-muka" id="link">KELAS X</a>
                 <br>
-                <a href="#">Kelas XI</a>
-                <br>
-                <a href="#">Kelas XII</a>
+                <a href="https://sites.google.com/view/bahasainggrislanjutv3/halaman-muka" id="link">KELAS XII</a>
             </div>
-            
         </div>
     </div>
 
-    <!-- JavaScript -->
+    <!-- JavaScript untuk efek salju dan daun maple -->
+    <script>
+        // Fungsi untuk membuat elemen salju
+        function createSnowflakes() {
+            const snowflake = document.createElement("div");
+            snowflake.classList.add("snowflake");
+            snowflake.textContent = "❄";
+            snowflake.style.left = Math.random() * window.innerWidth + "px";
+            snowflake.style.fontSize = Math.random() * 15 + 15 + "px";
+            snowflake.style.animationDuration = Math.random() * 5 + 5 + "s";
+            document.body.appendChild(snowflake);
+
+            setTimeout(() => {
+                snowflake.remove();
+            }, 10000);
+        }
+
+        // Fungsi untuk membuat elemen daun maple
+        function createMapleLeaves() {
+            const mapleLeaf = document.createElement("div");
+            mapleLeaf.classList.add("maple-leaf");
+            mapleLeaf.textContent = "🍁"; // Karakter daun maple
+            mapleLeaf.style.left = Math.random() * window.innerWidth + "px";
+            mapleLeaf.style.fontSize = Math.random() * 20 + 25 + "px";
+            mapleLeaf.style.animationDuration = Math.random() * 5 + 6 + "s";
+            document.body.appendChild(mapleLeaf);
+
+            setTimeout(() => {
+                mapleLeaf.remove();
+            }, 10000);
+        }
+
+        // Menambahkan salju dan daun maple setiap 300ms
+        setInterval(createSnowflakes, 300);
+        setInterval(createMapleLeaves, 800);
+    </script>
+
+    <!-- JavaScript untuk timer (script.js) -->
     <script src="script.js"></script>
-    <script src="strict.js"></script>
 </body>
 
 </html>
