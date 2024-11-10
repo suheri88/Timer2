@@ -110,3 +110,10 @@ label {
         font-size: 12px; /* Reduce font size for labels */
     }
 }
+
+.ghost-emoji {
+ 
+    font-size: 3rem;
+   
+   
+  }
